@@ -6,38 +6,38 @@ class WallServiceTest {
 
     @Test
     fun add() {
-        WallService.clearPosts()
+        val service = WallService()
         val post = Post(
             id = 1,
             date = 21032022
         )
 
-        WallService.add(post)
+        service.add(post)
 
         assertTrue(post.id != 0)
     }
 
     @Test
     fun update_existId() {
-        WallService.clearPosts()
-        WallService.add(Post())
-        WallService.add(Post())
+        val service = WallService()
+        service.add(Post())
+        service.add(Post())
         val update = Post(id = 2)
 
-        val isUpdate = WallService.update(update)
+        val result = service.update(update)
 
-        assertTrue(isUpdate)
+        assertTrue(result)
     }
 
     @Test
     fun update_notExistId() {
-        WallService.clearPosts()
-        WallService.add(Post())
-        WallService.add(Post())
+        val service = WallService()
+        service.add(Post())
+        service.add(Post())
         val update = Post(id = 3)
 
-        val isNotUpdate = !WallService.update(update)
+        val result = !service.update(update)
 
-        assertTrue(isNotUpdate)
+        assertTrue(result)
     }
 }

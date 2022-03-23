@@ -1,24 +1,24 @@
 object WallService {
-    private var posts = emptyArray<Post>()
+    private var postsArray = emptyArray<Post>()
     private var nextId = 1
 
     fun add(post: Post): Post {
-        posts += post.copy(id = nextId)
+        postsArray += post.copy(id = nextId)
         nextId++
-        posts += post
+        postsArray += post
         return post
     }
 
     fun update(post: Post): Boolean {
-        for (i in posts.indices)
-            if (posts[i].id == post.id) {
-                posts[i] = post.copy(id = posts[i].id, date = posts[i].date)
+        for (i in postsArray.indices)
+            if (postsArray[i].id == post.id) {
+                postsArray[i] = post.copy(id = postsArray[i].id, date = postsArray[i].date)
                 return true
             }
         return false
     }
 
     fun clearPosts() {
-        posts = emptyArray()
+        postsArray = emptyArray()
     }
 }

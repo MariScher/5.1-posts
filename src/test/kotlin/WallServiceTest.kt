@@ -34,7 +34,7 @@ class WallServiceTest {
         WallService.clearPosts()
         WallService.add(Post())
         WallService.add(Post())
-        val update = Post(id = 4)
+        val update = Post(id = 3)
 
         val isNotUpdate = !WallService.update(update)
 

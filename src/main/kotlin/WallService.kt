@@ -18,7 +18,4 @@ class WallService {
         return false
     }
 
-    fun clearPosts() {
-        postsArray = emptyArray()
-    }
 }

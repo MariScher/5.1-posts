@@ -30,6 +30,7 @@ data class Post(
     val postSource: PostSource? = PostSource(),
     val geo: Geo? = Geo(),
     val copyHistory: Array<Reposts> = emptyArray(),
+    val attachments: Array<Attachment> = emptyArray()
 ) {
 
     data class Comments(

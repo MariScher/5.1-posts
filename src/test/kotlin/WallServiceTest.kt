@@ -40,4 +40,24 @@ class WallServiceTest {
 
         assertTrue(result)
     }
+
+    @Test
+    fun createComment_existingId() {
+        val service = WallService()
+        service.add(Post())
+        val comment = Comment(postId = 1)
+
+        val isAdded = service.createComment(comment)
+
+        assertTrue(isAdded)
+    }
+
+    @Test(expected = PostNotFoundException::class)
+    fun createComment_notExistingId() {
+        val service = WallService()
+        service.add(Post())
+        val comment = Comment(postId = 1234)
+
+        service.createComment(comment)
+    }
 }
